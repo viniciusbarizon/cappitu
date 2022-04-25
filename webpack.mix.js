@@ -17,6 +17,8 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
     ]);
 
+mix.copyDirectory('resources/images', 'public/images');
+
 if (mix.inProduction()) {
     mix.version();
 }
