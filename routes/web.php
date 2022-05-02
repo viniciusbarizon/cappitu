@@ -24,9 +24,13 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', function () {
+            return view('dashboard');
+        })->name('dashboard');
 
-    Route::get('audio/send', Send::class);
+        Route::name('dashboard.')->group(function () {
+            Route::get('audio/send', Send::class)->name('audio.send');
+        });
+    });
 });
