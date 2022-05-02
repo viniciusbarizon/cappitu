@@ -15,6 +15,6 @@ class Send extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
+        return view('dashboard.audio.send');
     }
 }
